@@ -4,25 +4,29 @@ public void setup()
 }
 public void draw()
 {
-	sierpinski(0, 800, 800, 144, 12, 63);
+	sierpinski(0, 800, 800);
 }
 public void mouseDragged()//optional
 {
 
 }
-public void sierpinski(int x, int y, int len, float r, float g, float b) 
+public void sierpinski(int x, int y, int len) 
 {
-  fill(r,g,b);
 	if (len <= 16)
 	{
-    fill(r,g,b);
+		fill(x/5, y/5, 150);
 		triangle(x, y, x + len/2, y - len, x + len, y);
 	}
 	else
 	{
-    fill(r,g,b);
-    sierpinski(x, y, len/2, r - .1, g+.2, b-.05);
-		sierpinski(x + len/2, y, len/2,r - .1, g+.2, b-.05);
-		sierpinski(x + len/4, y - len/2, len/2,r - .1, g+.2, b-.05);
+    	sierpinski(x, y, len/2);
+		sierpinski(x + len/2, y, len/2);
+		sierpinski(x + len/4, y - len/2, len/2);
 	}
 }
+
+/*public void tri(int x, int y, int x2, int y2, int x3, int y3, int len, float r, float g, float b)
+{
+	fill(r, g, b);
+	triangle(x, y, x + len/2, y - len, x + len, y);
+}*/
